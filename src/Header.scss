@@ -1,0 +1,36 @@
+.header {
+  background-color: rgb(28, 5, 28);
+  display: flex;
+  justify-content: space-around;
+  height: 8vh;
+  align-items: center;
+  color: white;
+  .logo {
+    font-size: 2rem;
+  }
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  a:nth-child(1) {
+    margin-right: 1rem;
+  }
+  div {
+    position: relative;
+  }
+  .search-icon {
+    position: absolute;
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+  input {
+    width: 180px;
+    height: 55%;
+    border: none;
+    outline: none;
+    font-family: cursive;
+    font-weight: 700;
+    padding-left: 1.3rem;
+  }
+}
