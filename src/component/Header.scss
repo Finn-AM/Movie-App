@@ -7,8 +7,10 @@
   color: white;
   .logo {
     font-size: 2rem;
+    cursor: pointer;
   }
   a {
+    font-size: 1.3rem;
     text-decoration: none;
     color: white;
   }
@@ -20,10 +22,12 @@
   }
   .search-icon {
     position: absolute;
+    top: 7px;
     color: rgb(0, 0, 0);
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
+
   input {
     width: 180px;
     height: 55%;
@@ -31,6 +35,6 @@
     outline: none;
     font-family: cursive;
     font-weight: 700;
-    padding-left: 1.3rem;
+    padding: 0.6rem 0 0.6rem 1.7rem;
   }
 }

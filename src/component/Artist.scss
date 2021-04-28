@@ -1,0 +1,16 @@
+.cast-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  img {
+    height: 80%;
+    width: 80%;
+  }
+  h3 {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  .character {
+    font-style: italic;
+  }
+}

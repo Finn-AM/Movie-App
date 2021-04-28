@@ -1,6 +1,6 @@
 import React from 'react';
 import './Parallax.css';
-import bg from './assets/bg.jpg';
+import bg from '../assets/bg.jpg';
 
 function Parallax() {
   return (

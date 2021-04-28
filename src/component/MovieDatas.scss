@@ -1,7 +1,3 @@
-img {
-  width: 100%;
-}
-
 .movie-container {
   position: relative;
   height: auto;
@@ -12,10 +8,16 @@ img {
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   margin-top: 1rem;
 
+  img {
+    width: 100%;
+    animation: scaleOut 2s ease forwards;
+    min-height: 220px;
+    min-height: 220px;
+  }
   h3 {
     background-color: #393e46;
     color: #fcecdd;
-    height: 10vh;
+    height: 8vh;
     overflow: hidden;
     text-align: center;
   }
@@ -36,31 +38,28 @@ img {
     flex-direction: column;
   }
   span {
-    margin-left: 8px;
     position: absolute;
+    background-color: black;
+    border-radius: 2px;
+    padding: 0.7rem;
     color: white;
     font-weight: 700;
-    top: 30px;
-    right: 10px;
+    top: 53px;
+    left: 0;
   }
 
   .movie-btn {
     background-color: #393e46;
+    position: relative;
     z-index: 2;
     button {
-      outline: none;
-      border: 5px rgb(53, 53, 51) solid;
-      padding: 0.5rem 1rem;
-      border-radius: 10px;
+      transition: 200ms all ease-in-out;
       cursor: pointer;
-      font-weight: 700;
-      font-family: cursive;
-      letter-spacing: 0.1rem;
-      background-color: blanchedalmond;
-
-      transition: 200ms all ease;
+      font-weight: bold;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
       &:hover {
-        background-color: #999b84;
+        background-color: #393e46;
         color: white;
       }
     }

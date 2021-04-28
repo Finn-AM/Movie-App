@@ -1,12 +1,11 @@
 import './App.css';
-import Movie from './Movie';
-import Header from './Header';
-import Error from './Error';
-import Parallax from './Parallax';
-import MovieDetail from './MovieDetail';
+import Movie from './component/Movie';
+import Header from './component/Header';
+import Error from './component/Error';
+import Parallax from './component/Parallax';
+import MovieDetail from './component/MovieDetail';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import MovieDatas from './MovieDatas';
-import Search from './Search';
+import Search from './component/Search';
 
 function App() {
   return (

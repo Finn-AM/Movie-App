@@ -1,0 +1,59 @@
+.movie-wrapper {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  place-items: center;
+  gap: 20px;
+  text-align: center;
+  margin: 0 1rem;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  background-color: #393e46;
+  margin-top: 20px;
+
+  a {
+    margin: 10px;
+    text-decoration: none;
+
+    color: white;
+  }
+  a:hover {
+    color: rgba(255, 255, 255, 0.845);
+  }
+  a.active {
+    opacity: 0.3;
+    text-decoration: underline;
+  }
+  .hide {
+    display: none;
+  }
+  next.hide {
+    display: none;
+  }
+  button {
+    transition: 200ms all ease-in-out;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1rem;
+    font-family: cursive;
+    padding: 0 1rem;
+    &:hover {
+      background-color: #393e46;
+      color: white;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .btn-container {
+    a {
+      display: none;
+    }
+    button {
+      margin: 0 10px;
+    }
+  }
+}

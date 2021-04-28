@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
-import { useGlobalContext } from './context';
-import defaultImg from './assets/default.jpg';
+import { useGlobalContext } from '../context';
+import defaultImg from '../assets/default.jpg';
 import './Search.scss';
 
 function Search() {

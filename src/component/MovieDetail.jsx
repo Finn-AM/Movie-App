@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useGlobalContext } from './context';
+import { useGlobalContext } from '../context';
 import { useHistory } from 'react-router-dom';
 import Loading from './Loading';
 import Artist from './Artist';
 import { FaChevronUp, FaChevronDown, FaChevronLeft } from 'react-icons/fa';
-import defaultImg from './assets/default.jpg';
+import defaultImg from '../assets/default.jpg';
 import './MovieDetail.scss';
 
 function MovieDetail() {
@@ -31,9 +31,14 @@ function MovieDetail() {
   }
 
   async function getArtist() {
-    let response = await fetch(artistUrl);
-    response = await response.json();
-    setArtist(response.cast);
+    try {
+      let response = await fetch(artistUrl);
+      response = await response.json();
+      setArtist(response.cast.slice(0, 8));
+    } catch (error) {
+      console.log(error);
+      setArtist([]);
+    }
   }
 
   async function getDetails() {
@@ -41,7 +46,6 @@ function MovieDetail() {
       let response = await fetch(url);
       response = await response.json();
       setDetail(response);
-      console.log(response.videos);
       setVideos(response.videos.results[0].key);
     } catch (error) {
       console.log(error);
@@ -52,20 +56,21 @@ function MovieDetail() {
   function handleTrailer() {
     setExpandTrailer(!expandTrailer);
 
-    if (expandTrailer) frameRef.current.style.height = '40vh';
+    if (expandTrailer && window.innerWidth >= 800)
+      frameRef.current.style.height = '70vh';
+
+    if (expandTrailer && window.innerWidth <= 800)
+      frameRef.current.style.height = '40vh';
+
     if (!expandTrailer) frameRef.current.style.height = '0';
   }
 
   const handleCaster = () => {
     setExpandCaster(!expandCaster);
+    if (expandCaster) casterRef.current.style.height = '70vh';
 
-    if (expandCaster) casterRef.current.style.height = '40vh';
     if (!expandCaster) casterRef.current.style.height = '0';
   };
-
-  console.log(detail);
-  console.log(artist);
-  console.log(videos);
 
   if (loading) {
     return (
@@ -85,6 +90,7 @@ function MovieDetail() {
     vote_count,
     backdrop_path,
     poster_path,
+    runtime,
   } = detail;
   return (
     <>
@@ -103,7 +109,7 @@ function MovieDetail() {
         </div>
         <div className="embed-container">
           <div className="text">
-            <h2> Watch Trailer</h2>
+            <h2 onClick={handleTrailer}> Watch Trailer</h2>
             {expandTrailer ? (
               <FaChevronDown className="down" onClick={handleTrailer} />
             ) : (
@@ -121,7 +127,7 @@ function MovieDetail() {
 
         <section className="artist-container">
           <div className="text">
-            <h2>Casters</h2>{' '}
+            <h2 onClick={handleCaster}>Casters</h2>{' '}
             {expandCaster ? (
               <FaChevronDown className="down" onClick={handleCaster} />
             ) : (
@@ -138,13 +144,17 @@ function MovieDetail() {
         <section className="movie-report">
           <img src={poster_path ? `${img}/${poster_path}` : defaultImg} />
           <div>
-            <h3>{title}</h3>
+            <h3 className="title">
+              {title} <hr />
+            </h3>
             <p>{overview}</p>
-            <p>budget : ${budget ? budget : 'Unknown'}</p>
-            <p>revenue : ${revenue ? revenue : 'Unknown'}</p>
-            <p>status : {status}</p>
-            <p>{vote_average} / 10</p>
-            <p>Rated by {vote_count} people</p>
+            <p>Budget : ${budget ? budget.toLocaleString() : 'Unknown'}</p>
+            <p>Revenue : ${revenue ? revenue.toLocaleString() : 'Unknown'}</p>
+            <p>Status : {status}</p>
+            <p>
+              Rated {vote_average} / 10 , by {vote_count} people
+            </p>
+            <p>Runtime : {runtime} Min</p>
           </div>
         </section>
       </div>

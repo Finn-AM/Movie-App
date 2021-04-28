@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useGlobalContext } from './context';
+import { useGlobalContext } from '../context';
 import { IoStar } from 'react-icons/io5';
 import './MovieDatas.scss';
-import defaultImg from './assets/default.jpg';
+import defaultImg from '../assets/default.jpg';
 
 function MovieDatas({ original_title, poster_path, id, vote_average }) {
-  const { url, setUrl, artistUrl, setArtistUrl } = useGlobalContext();
+  const { setUrl, setArtistUrl } = useGlobalContext();
   const img = 'https://image.tmdb.org/t/p/w1280';
 
   const detailsMovie = (e) => {
@@ -21,13 +21,14 @@ function MovieDatas({ original_title, poster_path, id, vote_average }) {
   return (
     <div key={id} className="movie-container">
       <h3>{original_title}</h3>
-      <img src={poster_path ? `${img}/${poster_path}` : defaultImg} alt="" />
-      <div className="overview">
-        <span>
-          <IoStar />
-          {vote_average}
-        </span>
-      </div>
+      <img
+        src={poster_path ? `${img}/${poster_path}` : defaultImg}
+        alt={original_title}
+      />
+      <span>
+        <IoStar />
+        {vote_average ? vote_average.toFixed(1) : ''}
+      </span>
       <div className="movie-btn">
         <Link to="/detail">
           <button className="btn" onClick={detailsMovie} id={id}>

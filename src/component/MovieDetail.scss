@@ -2,8 +2,10 @@
   position: relative;
   img {
     min-width: 100vw;
+    height: auto;
+    min-height: 280px;
     opacity: 0.7;
-    transition: 300ms all ease;
+    animation: scaleOut 2s ease forwards;
   }
 
   div {
@@ -60,6 +62,10 @@
   overflow: hidden;
   transition: 300ms all ease;
 
+  h2 {
+    cursor: pointer;
+  }
+
   .iframe {
     height: 0;
     width: 100%;
@@ -99,14 +105,20 @@
   h2 {
     color: white;
     font-family: cursive;
+    cursor: pointer;
   }
 }
 
 .caster-list {
+  margin-top: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   height: 0;
+  gap: 40px;
   width: 100%;
   max-width: 100%;
   transition: 300ms all ease;
+  overflow-x: auto;
 }
 
 .movie-report {
@@ -115,8 +127,37 @@
     height: 340px;
     max-width: 250px;
   }
+  h3 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  p {
+    font-size: 1rem;
+    margin-left: 5px;
+    font-weight: 400;
+    color: white;
+  }
+  hr {
+    width: 18%;
+    border: 2px solid white;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    border-radius: 3px;
+  }
 }
 
 .movie-report * {
   margin-bottom: 10px;
+}
+
+@media (max-width: 800px) {
+  .movie-report {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h3 {
+      font-size: 1.6rem;
+    }
+  }
 }

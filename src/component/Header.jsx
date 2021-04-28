@@ -4,7 +4,7 @@ import { IoSearchSharp } from 'react-icons/io5';
 import { GiFilmProjector } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-import { useGlobalContext } from './context';
+import { useGlobalContext } from '../context';
 
 function Header() {
   const [query, setQuery] = useState('');
@@ -30,7 +30,7 @@ function Header() {
   return (
     <header className="header">
       <div className="logo">
-        <GiFilmProjector />{' '}
+        <GiFilmProjector onClick={() => history.push('/')} />{' '}
       </div>
       <nav className="navbar">
         <Link to="/">
