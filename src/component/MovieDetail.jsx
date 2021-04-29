@@ -142,7 +142,10 @@ function MovieDetail() {
         </section>
 
         <section className="movie-report">
-          <img src={poster_path ? `${img}/${poster_path}` : defaultImg} />
+          <img
+            src={poster_path ? `${img}/${poster_path}` : defaultImg}
+            alt={title}
+          />
           <div>
             <h3 className="title">
               {title} <hr />

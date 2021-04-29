@@ -1,7 +1,11 @@
 .poster-c {
   position: relative;
+  object-fit: contain;
+  width: 100vw;
+  overflow: hidden;
   img {
     min-width: 100vw;
+    max-width: 100vw;
     height: auto;
     min-height: 280px;
     opacity: 0.7;
@@ -10,10 +14,10 @@
 
   div {
     position: absolute;
-    z-index: 1;
     top: 50%;
     transform: translate(-50%, -50%);
     left: 50%;
+    z-index: 1;
     height: 100%;
     width: 100%;
     display: flex;
@@ -67,10 +71,11 @@
   }
 
   .iframe {
+    transition: 300ms all ease;
     height: 0;
     width: 100%;
     max-width: 100%;
-    transition: 300ms all ease;
+    object-fit: contain;
   }
 }
 

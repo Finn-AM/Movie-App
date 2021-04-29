@@ -7,7 +7,7 @@
   flex-direction: column;
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   margin-top: 1rem;
-
+  min-width: 220px;
   img {
     width: 100%;
     animation: scaleOut 2s ease forwards;

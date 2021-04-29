@@ -24,6 +24,7 @@ function MovieDatas({ original_title, poster_path, id, vote_average }) {
       <img
         src={poster_path ? `${img}/${poster_path}` : defaultImg}
         alt={original_title}
+        loading="lazy"
       />
       <span>
         <IoStar />

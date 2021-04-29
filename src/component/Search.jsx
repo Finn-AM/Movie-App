@@ -5,7 +5,7 @@ import defaultImg from '../assets/default.jpg';
 import './Search.scss';
 
 function Search() {
-  const { searchUrl, url, setUrl, setArtistUrl } = useGlobalContext();
+  const { searchUrl, setUrl, setArtistUrl } = useGlobalContext();
 
   const [searchData, setSearchData] = useState([]);
   const [loading, setLoading] = useState(true);
